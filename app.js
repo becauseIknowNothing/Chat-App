@@ -20,8 +20,8 @@ const secret = "JWTdmsod"
 mongoose.connect('mongodb+srv://Nipun:nipun@cluster0-6kwx6.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true })
     .then(() => console.log('connected'))
     .catch(err => { console.log(err); })
-const Group = require('./utils/models/group.js')
-const User = require('./utils/models/users.js')
+const Group = require('./group.js')
+const User = require('./user.js')
 const generateToken =async (res, {username,email}) => {
     const expiration = 604800000000000;
     const token =await jwt.sign({ username ,email}, secret);
